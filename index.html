@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title> Serdar SAYAR</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" type="text/css"/>
+ 
+    <style>
+        .tabBlok
+        {
+            background-color:#25373D;
+            border:solid 0px #4c02c4;
+            border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+            max-width:200px;
+            width:100%;
+            overflow:hidden;
+            display:block;
+        }
+        .dijitalSaat
+        {5
+            vertical-align:middle;
+            font-family:Orbitron;
+            font-size:40px;
+            font-weight:normal;
+            color:#FFF;
+            padding:0 10px;
+        }
+        .saat
+        {
+            vertical-align:middle; 
+            font-family:Orbitron;
+            font-size:20px;
+            font-weight:normal;
+            color:#FFF;
+        }
+        .zemin{
+            background-color:#F3F3F3;
+            max-width:220px;
+            width:100%;
+            margin:0 auto;
+            padding:20px;
+        }
+    </style>
+</head>
+ 
+<body onload="dijitalSaat();">
+    <div class="zemin">
+ 
+        <table class="tabBlok" align="center" cellspacing="0" cellpadding="0" border="0">
+            <tr><td class="dijitalSaat" id="dt"></td> 
+                <td>
+                    <table cellpadding="0" cellspacing="0" border="0">
+ 
+                        <tr><td class="saat" id="dt_saat">😴</td></tr>
+ 
+                        <!-- SHOWING SECONDS. -->
+                        <tr><td class="saat" id="dt_saniye"></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+ 
+<script>
+    // tarih oluşturma fonksiyonu
+    function dijitalSaat() {
+        var dt = new Date();    // DATE() ile yeni bir tarih nesnesi oluşturuldu.
+        var saat = dt.getHours();
+        var dakika = dt.getMinutes();
+        var saniye = dt.getSeconds();
+ 
+        dakika = Tik(dakika);
+        saniye = Tik(saniye);
+ 
+        document.getElementById('dt').innerHTML = saat + ":" + dakika;
+        document.getElementById('dt_saniye').innerHTML = saniye;
+ 
+        if (saat > 12) { 
+            document.getElementById('dt_saat').innerHTML = '😊'; 
+        }
+        else { 
+            document.getElementById('dc_hour').innerHTML = '😴'; 
+        }
+ 
+        // her 1 saniyede bir yenileme yapılıyor.
+        var time
+        time = setInterval('dijitalSaat()', 1000);
+    }
+ 
+    function Tik(tikDegeri) {
+        if (tikDegeri < 10) {
+            tikDegeri = "0" + tikDegeri;
+        }
+        return tikDegeri;
+    }
+</script>5
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasarım Kodlama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        html{
+            font-size:62.5%;/*1rem = 10px*/
+        }
+
+        body,h1,h2,ul{
+            margin:0;
+            padding:0;
+            
+        }
+        ul{
+            list-style: none;
+        }
+
+        /*******************/
+        body{
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .arkaplan{
+            background-color: #25373D;
+        }
+        .kapsayici{
+            width: 960px;
+            margin:0 auto;
+        }
+        
+        .ust{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .ust .logo{
+            text-align: center;
+            color:#fff;
+        }
+        .ust .logo h1{
+            font-size:4rem;
+            letter-spacing: .5rem;
+        }
+
+        .ust .logo h1::first-letter{
+            color:#FCB941;
+        }
+
+        .ust .logo h1:hover::first-letter{
+            background-color: #FCB941;
+            color:#25373D;
+        }
+
+        .ust .logo h2{
+            font-size:2.4rem;
+        }
+
+        
+
+        
+
+        .ust .menu ul{
+            display: flex;
+        }
+        .ust .menu ul li{
+            margin:0 1rem;
+        }
+
+        .ust .menu ul a{
+            color:#fff;
+            text-decoration: none;
+            font-size:1.8rem;
+            padding:0 2rem;
+        }
+        .ust .menu ul a:hover{
+            color:#FCB941;
+        }
+
+        .orta .bolum1{
+            margin-top:20px;
+            border:20px solid #25373D;
+            padding:20px;
+        }
+
+        .orta .bolum1 img{
+            display: block;
+            width: 100%;
+        }
+
+        .orta .bolum2{
+            margin-top:20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .orta .bolum2 .kutu{
+            flex-basis: 290px;
+        }
+
+        .orta .bolum2 .kutu h2{
+            font-size: 2rem;
+        }
+
+        .orta .bolum2 .kutu p{
+            font-size: 1.6rem;
+        }
+
+        .orta .bolum3{
+            display: flex;
+            justify-content: space-between;
+            gap:20px;
+        }
+
+        .orta .bolum3 h1{
+            font-size:2.5rem;
+        }
+
+        .orta .bolum3 p{
+            font-size:1.6rem;
+        }
+
+        .alt{
+            margin-top:20px;
+            padding:20px 0;
+            display: flex;
+            gap:20px;
+        }
+        .alt .baglanti{
+            flex-grow: 1;
+        }
+
+        .alt .baglanti ul li{
+            border-bottom:dotted 1px #FCB941;
+            margin:5px 0;
+        }
+
+        .alt .baglanti a{
+            font-size:1.6rem;
+            text-decoration: none;
+            color:#FCB941;
+        }
+
+
+        .cizgi{
+            border-top:dotted 1px #FCB941;
+            margin:20px 0;
+        }
+
+        .alt-kenar-10{
+            border-bottom:10px solid #FCB941;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- sayfa üstü-->
+    <div class="arkaplan alt-kenar-10">
+        <div class="ust kapsayici">
+            <div class="logo">
+                <h1>Serdar SAYAR</h1>
+                <h2>serdarsayar.github.io</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="https://www.behance.net/serdarsayar"> Tasarımlarım</a></li>
+                    <li><a href="#">Bize Ulaş </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- sayfa ortası-->
+    <div class="orta kapsayici">
+        <div class="bolum1">
+            <img src="https://picsum.photos/960/360" alt="Kapak resmi">
+        </div>
+        <div class="bolum2">
+            <div class="kutu">
+                <img src="arazi.JPG" alt="Sivrice" width="290px" height="180px">
+                <h2>Fotoğraf Çekimi</h2>
+                <p>Ürün fotoğrafı dahil tüm profesyonel fotoğraflarınızın çekimi yapılabilir.</p>
+            </div>
+            <div class="kutu">
+                <img src="https://picsum.photos/290/180" alt="">
+                <h2>Tasarım ve Üretim</h2>
+                <p> Web düzeyinde tasarım, üretim ve sürüm temelli işlemler sağlanacaktır. </p>
+            </div>
+            <div class="kutu">
+                <img src="Logo.jpg" alt="logo" width="290px" height="180px">
+                <h2>Kurumsal Kimlik</h2>
+                <p> Şirket düzeninde kurumsal kimlik bazında en göz alıcı tasarımları yapmak ve ulaşmak sizin elinizde. </p>
+            </div>
+
+
+        </div>
+        <div class="cizgi"></div>
+        <div class="bolum3">
+            <div class="icerik">
+                <h1>Ben Kimim?</h1>
+                <p> Merhaba Ben Serdar, 1998 yılında Elazığ'da doğdum. Doğduktan sonra Ankara'ya taşındığımız için ilk ve ortaöğretimimi Ankarada tamamladım. 
+                    3 senelik hazırlığın ardından Fırat Üniversitesi Görsel İletişim Tasarımı bölümünü kazandım ve eğitimimi hala sürdürmekteyim. </p>
+            </div>
+            
+            <div class="gorsel">
+                <img src="Serdar SAYAR.jpg" alt="ben" width="400"   height="250">
+            </div>
+        </div>
+        <FORM>
+            <INPUT TYPE="button" VALUE="Benimle İletişime Geç" onClick="parent.location='mailto:mustafaserdarsayar@gmail.com'">
+            </FORM>
+        
+    </div>
+
+    <!-- sayfa altı-->
+    <div class="arkaplan">
+        <div class="alt kapsayici">
+            <div class="baglanti">
+                
+            </div>
+            <div class="baglanti">
+                
+            </div>
+            <div class="baglanti">
+                
+            </div>
+            <div class="baglanti">
+        
+            </div>
+        </div>
+    </div>
+    <FORM>
+        <INPUT TYPE="button" VALUE="Benimle İletişime Geç" onClick="parent.location='mailto:mustafaserdarsayar@gmail.com'">
+        </FORM>
+    
+</body>
+</html>
